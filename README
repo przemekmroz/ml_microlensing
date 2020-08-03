@@ -1,0 +1,18 @@
+Identifying microlensing events using deep neutral nets
+
+Calculating light curve features:
+
+gcc -o get_features get_features.c find_transient.c single.c asa047.c -lm
+
+./get_feature filename
+
+filename should contain three columns: time, magnitude, and magnitude
+error.
+
+Normalized features are saved to a text file "normalized_features.txt"
+which can be fed into a classifier.
+
+To calculate the classifier's score use:
+
+python predict.py CLASSIFIER.h5 normalized_features.txt
+
